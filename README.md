@@ -1,4 +1,5 @@
 NetworkTool
 ===========
 
-some small programs about network protocol, and some interesting tools
+这是个有关网络方面有趣程序的集合。大部分用python写。
+可以通过这些工具了解网络协议的工作原理和网络工具的实现原理。
