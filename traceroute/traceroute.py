@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import socket
 import geoip
+import time
 
 def sendPacket(icmp,udp,ttl,dest_name):
     port = 33434
@@ -10,11 +11,13 @@ def sendPacket(icmp,udp,ttl,dest_name):
     send_socket.settimeout(3.0)
     recv_socket.settimeout(4.0)
     recv_socket.bind(("", port))
+    start_time = time.time()
     send_socket.sendto("", (dest_name, port))
     curr_addr = None
     curr_name = None
     try:
         _, curr_addr = recv_socket.recvfrom(512)
+        latency = (time.time() - start_time) * 1000
         curr_addr = curr_addr[0]
         try:
             curr_name = socket.gethostbyaddr(curr_addr)[0]
@@ -31,7 +34,7 @@ def sendPacket(icmp,udp,ttl,dest_name):
         curr_host = "%s (%s)" % (curr_name, curr_addr)
     else:
         curr_host = "*"
-    print "{:d}\t{:70s}".format(ttl, curr_host),
+    print "{:d}\t{:f}ms\t{:70s}".format(ttl,latency, curr_host),
     print "%s"%(geoip.geoip(curr_addr))                                        
     return curr_addr
 
