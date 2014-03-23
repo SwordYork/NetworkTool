@@ -1,0 +1,9 @@
+建立一个本地邮件服务器，模拟邮件收发。
+由于这不能直接被发送到对方邮件服务商，而且建一个MTA和麻烦，
+所以退而求其次，使用Relay真正转发邮件。
+网上随便一搜free smtp relay 就有了。
+我用的是relay.jangosmtp.net，缺点是会提示是被转发的，不能真正实现匿名。
+运行方法:打开两个终端
+python anonySmtpServer.py 
+修改sendmail.py的目标邮箱，和伪造邮箱
+python sendmail.py 
