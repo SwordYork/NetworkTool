@@ -2605,7 +2605,7 @@ function FindProxyForURL(url, host) {
     var suffix;
     var pos = host.lastIndexOf('.');
 
-    if (dnsDomainIs(host, '*scholar.google.com') {
+    if (dnsDomainIs(host, '*scholar.google.com')) {
         return torProxy;
     }
 
