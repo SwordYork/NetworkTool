@@ -2609,23 +2609,19 @@ function FindProxyForURL(url, host) {
         return torProxy;
     }
 
- // onion over tor
-  if (shExpMatch(host,"*.onion")) {
-    alert("Using TOR for host " +host + " in url " +url);
-    return torProxy;
-  }
-    if (dnsDomainIs(host, '*.onion')) {
+    // onion over tor
+    if (shExpMatch(host,"*.onion")) {
+        //alert("Using TOR for host " +host + " in url " +url);
         return torProxy;
+    }
+    
+    if (dnsDomainIs(host, '*.google.com')) {
+        return normalProxy;
     }
 
     for (;;) {
         suffix = host.substring(pos + 1);
         
-        // hidden site use tor proxy
-        if (suffix.toLowerCase() == '.onion') {
-            return torProxy;
-        }
-
         // balance using tor and http
         if (hasOwnProperty.call(domains, suffix)) {
             if (Math.random() > 0.5) {
