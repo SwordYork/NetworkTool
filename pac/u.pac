@@ -2609,6 +2609,10 @@ function FindProxyForURL(url, host) {
         return torProxy;
     }
 
+    if (dnsDomainIs(host, '*.onion')) {
+        return torProxy;
+    }
+
     for (;;) {
         suffix = host.substring(pos + 1);
         
