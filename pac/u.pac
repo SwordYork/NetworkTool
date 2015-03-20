@@ -2609,6 +2609,11 @@ function FindProxyForURL(url, host) {
         return torProxy;
     }
 
+ // onion over tor
+  if (shExpMatch(host,"*.onion")) {
+    alert("Using TOR for host " +host + " in url " +url);
+    return torProxy;
+  }
     if (dnsDomainIs(host, '*.onion')) {
         return torProxy;
     }
