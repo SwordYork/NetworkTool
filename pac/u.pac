@@ -2625,10 +2625,10 @@ function FindProxyForURL(url, host) {
         
         // balance using tor and http
         if (hasOwnProperty.call(domains, suffix)) {
-            if (Math.random() > 0.5) {
+            //if (Math.random() > 0.5) {
                 return normalProxy;
-            }
-            return torProxy;
+            //}
+            //return torProxy;
         }
 
         if (pos <= 0) {
