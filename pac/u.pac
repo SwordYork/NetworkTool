@@ -155,6 +155,7 @@ var domains = {
   "avoision.com": 1, 
   "awardwinningfjords.com": 1, 
   "awflasher.com": 1, 
+  "amazonaws.com": 1,
   "axureformac.com": 1, 
   "baby-kingdom.com": 1, 
   "backchina.com": 1, 
@@ -2591,7 +2592,7 @@ var domains = {
   "zuobiao.me": 1, 
   "zuola.com": 1, 
   "zvereff.com": 1, 
-  "zyzc9.com": 1
+  "zyzc9.com": 1,
 };
 
 var direct = "DIRECT;";
